@@ -435,6 +435,16 @@ public class Character : Breakable
         pause.SetActive(!pause.activeInHierarchy);
     }
 
+    //                     On : 플레이어가 직접 입력했을 때
+    //                                                      마우스 위치, 근데 픽셀 기준임
+    //                                                      월드포인트로 바꿔줘야함.
+    protected virtual void OnRangeAttack() => RangeAttack(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+
+    protected virtual void RangeAttack(Vector2 wantPosition)
+    {
+
+    }
+
     // enumerator 코루틴에 대한 내용
     // 코루틴을 알고는 계셔야 해서 하는 거에요!
     // 만약에 포트폴리오가서 코루틴을 많이쓰면 다 지울거임!
