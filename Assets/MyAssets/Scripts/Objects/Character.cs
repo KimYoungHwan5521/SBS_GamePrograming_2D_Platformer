@@ -442,7 +442,32 @@ public class Character : Breakable
 
     protected virtual void RangeAttack(Vector2 wantPosition)
     {
+        Vector2 wantDirection = wantPosition - (Vector2)transform.position;
+        wantDirection.Normalize();
+        Quaternion wantRotation = Quaternion.Euler(0, 0, Mathf.Atan2(wantDirection.y, wantDirection.x)*Mathf.Rad2Deg);
+        // 투사체 불러오기
+        GameObject prefab = Resources.Load<GameObject>("Prefabs/Projectiles/Projectile");
+        
+        Vector2 spawnPosition = transform.position;
+        if(TryGetComponent(out Collider2D myCol))
+        {
+            spawnPosition = myCol.ClosestPoint(wantPosition);
+        }
 
+        
+        GameObject inst = Instantiate(prefab, spawnPosition, wantRotation);
+
+
+
+        if(inst.TryGetComponent<DamageComponent>(out var damage))
+        {
+            damage.Initialize(this, attackPower, criticalRate);
+
+        }
+        if(inst.TryGetComponent(out Rigidbody2D otherRigid))
+        {
+            otherRigid.AddForce(wantDirection * 500);
+        }
     }
 
     // enumerator 코루틴에 대한 내용

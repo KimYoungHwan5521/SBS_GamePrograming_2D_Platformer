@@ -35,7 +35,13 @@ public class DamageComponent : MonoBehaviour
 
     }
 
-    protected void OnTriggerEnter2D(Collider2D other) 
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
+    {
+        // 이렇게도 됨
+        OnTriggerEnter2D(collision.collider);
+    }
+
+    protected virtual void OnTriggerEnter2D(Collider2D other) 
     {
         // 상대방이 Breakable을 가지고 있는지
         // Character 컴포넌트도 Breakable을 상속받았으니까 가져올 수 있음

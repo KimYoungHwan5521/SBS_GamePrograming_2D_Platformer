@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4011239811259627063}
   - component: {fileID: 2737405062379968104}
   - component: {fileID: 8971861578633153659}
-  - component: {fileID: 7849150823737864757}
+  - component: {fileID: 658663652162872910}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.35, y: 3.75, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -149,7 +149,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7849150823737864757
+--- !u!114 &658663652162872910
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,11 +158,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4828253994217625534}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42e8caf81a47be846bf643c39ac93d66, type: 3}
+  m_Script: {fileID: 11500000, guid: 9aa1d5a8e20fa944d9098d5dde8c08ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attacker: {fileID: 0}
-  damage: 10
-  damageCorrectionValue: 0
-  criticalRate: 0
-  hitEffectName: 
+  damage: 0
+  damageCorrectionValue: 1
+  criticalRate: 0.1
+  hitEffectName: HitEffect
